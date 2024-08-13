@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>My Appointments</h2>
+        <table>
+            <tr>
+                <th>Teacher</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+            <% appointments.forEach(appointment => { %>
+            <tr>
+                <td><%= appointment.teacher_name %></td>
+                <td><%= appointment.date %></td>
+                <td><%= appointment.time %></td>
+                <td><%= appointment.description %></td>
+                <td><%= appointment.status %></td>
+            </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+</html>

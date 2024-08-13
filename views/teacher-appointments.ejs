@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Appointments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>All Appointments</h2>
+        <table>
+            <tr>
+                <th>Student</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            <% appointments.forEach(appointment => { %>
+            <tr>
+                <td><%= appointment.student_name %></td>
+                <td><%= appointment.date %></td>
+                <td><%= appointment.time %></td>
+                <td><%= appointment.description %></td>
+                <td>
+                    <form action="/approve-appointment" method="POST" style="display:inline;">
+                        <input type="hidden" name="appointment_id" value="<%= appointment.id %>">
+                        <button type="submit">Approve</button>
+                    </form>
+                    <form action="/delete-appointment" method="POST" style="display:inline;">
+                        <input type="hidden" name="appointment_id" value="<%= appointment.id %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </table>
+    </div>
+</body>
+</html>
